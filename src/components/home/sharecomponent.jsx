@@ -25,7 +25,7 @@ const ShareDropdown = ({ title, contentId, imageUrl }) => {
       <Helmet>
         <meta property="og:title" content={title} />
         <meta property="og:description" content="Check out this amazing content!" />
-        <meta property="og:image" content={imageUrl} />
+        <meta property="og:image" content={`https://tugofwar-server.onrender.com/uploads/${content?.image}`} /> {/* Make sure this is the correct image URL */}
         <meta property="og:url" content={shareableLink} />
         <meta property="og:type" content="article" />
       </Helmet>
