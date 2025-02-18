@@ -6,7 +6,12 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import ContentCopyRoundedIcon from '@mui/icons-material/ContentCopyRounded';
 
 const ShareDropdown = ({ title, contentId }) => {
-  const shareableLink = `${window.location.origin}/detailed-content/${contentId}`; // Dynamically get current domain
+  console.log("Content ID:", contentId);
+  console.log("Current Origin:", window.location.origin);
+
+  // Ensure the link dynamically reflects the correct page
+  const shareableLink = `${window.location.origin}/detailed-content/${contentId}`;
+  console.log("Generated Shareable Link:", shareableLink);
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(shareableLink);
