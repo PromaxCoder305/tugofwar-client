@@ -1,0 +1,76 @@
+/* Header Container - Flexbox for Proper Alignment */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allows content to wrap properly */
+    padding: 10px 20px;
+    max-width: 100%; /* Prevents overflow */
+    overflow: hidden; /* Ensures no extra content spills out */
+  }
+  
+  /* Logo Styling */
+  .header-logo {
+    flex: 1 1 auto; /* Allows flexibility */
+    display: flex;
+    justify-content: center; /* Centers the logo */
+    align-items: center;
+  }
+  
+  .header-logo img {
+    height: 60px;
+    max-width: 150px;
+    object-fit: contain;
+  }
+  
+  /* Title Section */
+  .header-title {
+    flex: 1 1 auto;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0 10px;
+    min-width: 150px;
+  }
+  
+  /* Registration Info */
+  .header-registration {
+    flex: 1 1 auto;
+    text-align: right;
+    font-size: 14px;
+    min-width: 150px;
+    padding-left: 10px;
+  }
+  
+  /* Mobile View Adjustments */
+  @media (max-width: 768px) {
+    .header-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 8px;
+    }
+    .header-title{
+        border-right: none !important;
+        MARGIN-right: none I !important;
+    }
+    .header-registration{
+        display :none !important;
+    }
+  
+    .header-logo img {
+      height: 80px;
+      max-width: 100px;
+      margin-left: -80px;
+    }
+  
+    .header.navbar.header-title {
+      font-size: 5px !important;
+      width: 100%;
+      padding: 5px 0;
+    }
+    .header-time{
+        display: none;
+    }
+  }
+  
