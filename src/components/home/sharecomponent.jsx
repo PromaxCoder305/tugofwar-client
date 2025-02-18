@@ -7,8 +7,12 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import ContentCopyRoundedIcon from '@mui/icons-material/ContentCopyRounded';
 
 const ShareDropdown = ({ title, contentId, imageUrl }) => {
+  console.log("Content ID:", contentId);
+  console.log("Current Origin:", window.location.origin);
+
   // Generate shareable link dynamically
   const shareableLink = `${window.location.origin}/detailed-content/${contentId}`;
+  console.log("Generated Shareable Link:", shareableLink);
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(shareableLink);
@@ -19,10 +23,10 @@ const ShareDropdown = ({ title, contentId, imageUrl }) => {
     <>
       {/* Dynamic Meta Tags for Open Graph */}
       <Helmet>
-        <meta property="og:title" content={title || "Default Title"} />
-        <meta property="og:description" content={title || "Default Description"} />
-        <meta property="og:image" content={imageUrl || "https://example.com/default-image.jpg"} />
-        <meta property="og:url" content={shareableLink} />
+        <meta property="og:title" content={content.title || "Default Title"} />
+        <meta property="og:description" content={content.subTitle || "Default Description"} />
+        <meta property="og:image" content={`https://tugofwar-server.onrender.com/uploads/${content.image}`} />
+        <meta property="og:url" content={`${window.location.origin}/detailed-content/${id}`} />
         <meta property="og:type" content="article" />
       </Helmet>
 
