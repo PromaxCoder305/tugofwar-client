@@ -36,7 +36,7 @@ function DetailedContent() {
 
           try {
             // POST request to save the comment to the database
-            const response = await axios.post("http://localhost:6001/comments/add", newCommentData);
+            const response = await axios.post("https://tugofwar-client-1.onrender.com/comments/add", newCommentData);
             console.log(response.data); 
             alert("Comment added successfully");
 
