@@ -137,7 +137,7 @@ function DetailedContent() {
               <>
                 <div className="position-relative rounded overflow-hidden">
                   <h3 className="mt-2 h3-link">{content.title}</h3> <div style={{ position: "absolute", top: "10px", right: "10px", zIndex: 10 }}>
-                  <ShareDropdown title={content.title} contentId={id} />
+                  <ShareDropdown title={content.title} contentId={id} imageUrl={content.imageUrl} />
     </div>
 
                   <p className="text-muted">{content.subTitle}</p>
