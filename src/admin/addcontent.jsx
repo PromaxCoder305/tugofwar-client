@@ -46,7 +46,7 @@ function Addcontent() {
     if (formData.image) data.append("image", formData.image);
 
     try {
-      await axios.post("http://localhost:6001/content/addcontent", data, {
+      await axios.post("https://tugofwar-server.onrender.com/content/addcontent", data, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 

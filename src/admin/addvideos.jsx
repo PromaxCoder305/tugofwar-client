@@ -42,7 +42,7 @@ const UploadVideo = () => {
     };
 
     try {
-      const response = await axios.post("http://localhost:6001/videos/add", formData, {
+      const response = await axios.post("https://tugofwar-server.onrender.com/videos/add", formData, {
         headers: { "Content-Type": "application/json" },
       });
 

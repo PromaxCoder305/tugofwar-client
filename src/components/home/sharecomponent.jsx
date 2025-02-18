@@ -6,8 +6,7 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import ContentCopyRoundedIcon from '@mui/icons-material/ContentCopyRounded';
 
 const ShareDropdown = ({ title, contentId }) => {
-  const baseUrl = "http://localhost:6001/content/latestcontent"; // Change to your domain if deployed
-  const shareableLink = `${baseUrl}/${contentId}`;
+  const shareableLink = `${window.location.origin}/detailed-content/${contentId}`; // Dynamically get current domain
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(shareableLink);
@@ -45,7 +44,9 @@ const ShareDropdown = ({ title, contentId }) => {
         >
          <WhatsAppIcon fontSize="small"/> WhatsApp
         </Dropdown.Item>
-        <Dropdown.Item onClick={handleCopyLink}><ContentCopyRoundedIcon fontSize="small"/>Copy Link</Dropdown.Item>
+        <Dropdown.Item onClick={handleCopyLink}>
+          <ContentCopyRoundedIcon fontSize="small"/> Copy Link
+        </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   );

@@ -36,7 +36,7 @@ function DetailedContent() {
 
           try {
             // POST request to save the comment to the database
-            const response = await axios.post("https://tugofwar-client-1.onrender.com/comments/add", newCommentData);
+            const response = await axios.post("https://tugofwar-server.onrender.com/comments/add", newCommentData);
             console.log(response.data); 
             alert("Comment added successfully");
 
@@ -61,7 +61,7 @@ function DetailedContent() {
   // Fetch content details
   const fetchContent = async () => {
     try {
-      const response = await axios.get(`http://localhost:6001/content/getbyid/${id}`);
+      const response = await axios.get(`https://tugofwar-server.onrender.com/content/getbyid/${id}`);
       setContent(response.data);
     } catch (error) {
       console.error("Error fetching content:", error);
@@ -71,7 +71,7 @@ function DetailedContent() {
   // Fetch latest news
   const fetchLatestNews = async () => {
     try {
-      const response = await axios.get("http://localhost:6001/content/latestcontent");
+      const response = await axios.get("https://tugofwar-server.onrender.com/content/latestcontent");
       setLatestNews(response.data.slice(0, 5));
     } catch (error) {
       console.error("Error fetching latest news:", error);
@@ -81,7 +81,7 @@ function DetailedContent() {
   // Fetch YouTube links
   const fetchYoutubeLinks = async () => {
     try {
-      const response = await axios.get("http://localhost:6001/videos/all");
+      const response = await axios.get("https://tugofwar-server.onrender.com/videos/all");
       setYoutubeLinks(response.data);
     } catch (error) {
       console.error("Error fetching YouTube links:", error);
@@ -91,7 +91,7 @@ function DetailedContent() {
   // Fetch comments based on the content ID
   const fetchComments = async () => {
     try {
-      const response = await axios.get(`http://localhost:6001/comments/getcomments/${id}`);
+      const response = await axios.get(`https://tugofwar-server.onrender.com/comments/getcomments/${id}`);
       const sortedComments = response.data.sort((a, b) =>
         sortOrder === "newest" ? new Date(b.date) - new Date(a.date) : new Date(a.date) - new Date(b.date)
       );
@@ -142,7 +142,7 @@ function DetailedContent() {
 
                   <p className="text-muted">{content.subTitle}</p>
                   <img
-                    src={`http://localhost:6001/uploads/${content.image}`}
+                    src={`https://tugofwar-server.onrender.com/uploads/${content.image}`}
                     className="img-fluid rounded w-100"
                     alt={content.title}
                     style={{ height: "350px", objectFit: "cover" }}
@@ -169,7 +169,7 @@ function DetailedContent() {
                 <div className="d-flex mb-2 border-bottom pb-2 ms-2" key={index}>
                   <div className="me-3" style={{ width: "30%" }}>
                     <img
-                      src={`http://localhost:6001/uploads/${newsItem.image}`}
+                      src={`https://tugofwar-server.onrender.com/uploads/${newsItem.image}`}
                       className="img-fluid rounded"
                       alt="News"
                       style={{ height: "80px", objectFit: "cover" }}

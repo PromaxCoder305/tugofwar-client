@@ -14,7 +14,7 @@ const LoginPopup = ({ isOpen, onClose, onLoginSuccess }) => {
 
     try {
       // Send login data to the backend
-      const response = await axios.post("http://localhost:6001/api/login", { name, email });
+      const response = await axios.post("https://tugofwar-server.onrender.com/api/login", { name, email });
       
       if (response.status === 200) {
         const user = response.data.user; // Get user data from the response

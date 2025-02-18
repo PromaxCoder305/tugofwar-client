@@ -15,7 +15,7 @@ function Home() {
 
   const fetchNews = async () => {
     try {
-      const response = await axios.get("http://localhost:6001/content/latestcontent");
+      const response = await axios.get("https://tugofwar-server.onrender.com/content/latestcontent");
       if (response.data && response.data.length > 0) {
         setTopThreeNews(response.data.slice(0, 3));
         setRemainingNews(response.data.slice(3));
@@ -27,7 +27,7 @@ function Home() {
 
   const fetchYoutubeLinks = async () => {
     try {
-      const response = await axios.get("http://localhost:6001/videos/all");
+      const response = await axios.get("https://tugofwar-server.onrender.com/videos/all");
       if (response.data) {
         setYoutubeLinks(response.data);
       }
@@ -60,7 +60,7 @@ function Home() {
               <>
                 <div className="position-relative rounded overflow-hidden">
                   <img
-                    src={`http://localhost:6001/uploads/${topThreeNews[0]?.image}`}
+                    src={`https://tugofwar-server.onrender.com/uploads/${topThreeNews[0]?.image}`}
                     className="img-fluid rounded w-100"
                     alt="Main News"
                     style={{ height: "350px", objectFit: "cover" }}
@@ -81,7 +81,7 @@ function Home() {
                     <div className="col-md-6" key={index}>
                       <div className="rounded overflow-hidden">
                         <img
-                          src={`http://localhost:6001/uploads/${news?.image}`}
+                          src={`https://tugofwar-server.onrender.com/uploads/${news?.image}`}
                           className="img-fluid rounded w-100"
                           alt={`News ${index + 1}`}
                           style={{ height: "180px", objectFit: "cover" }}
@@ -111,7 +111,7 @@ function Home() {
                 <div className="d-flex mb-2 border-bottom pb-2 ms-2" key={index} style={{ maxWidth: '100%' }}>
                   <div className="me-3" style={{ width: '30%' }}>
                     <img
-                      src={`http://localhost:6001/uploads/${newsItem.image}`}
+                      src={`https://tugofwar-server.onrender.com/uploads/${newsItem.image}`}
                       className="img-fluid rounded"
                       alt={`News ${index + 1}`}
                       style={{ height: "80px", objectFit: "cover" }}
