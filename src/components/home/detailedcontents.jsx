@@ -142,6 +142,7 @@ function DetailedContent() {
   contentId={content.id} 
   imageUrl={`https://tugofwar-server.onrender.com/uploads/${content.image}`} 
 />
+
     </div>
 
                   <p className="text-muted">{content.subTitle}</p>

@@ -10,6 +10,9 @@ const ShareDropdown = ({ title, contentId, imageUrl }) => {
   // Generate shareable link dynamically
   const shareableLink = `${window.location.origin}/detailed-content/${contentId}`;
 
+  console.log("Content ID:", contentId); // Log to ensure contentId is passed correctly
+  console.log("Shareable Link:", shareableLink); // Log the generated link
+
   const handleCopyLink = () => {
     navigator.clipboard.writeText(shareableLink);
     alert("Link copied to clipboard!");
