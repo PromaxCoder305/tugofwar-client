@@ -23,9 +23,9 @@ const ShareDropdown = ({ title, contentId, imageUrl }) => {
     <>
       {/* Dynamic Meta Tags for Open Graph */}
       <Helmet>
-        <meta property="og:title" content={content.title || "Default Title"} />
-        <meta property="og:description" content={content.subTitle || "Default Description"} />
-        <meta property="og:image" content={`https://tugofwar-server.onrender.com/uploads/${content.image}`} />
+        <meta property="og:title" content={title || "Default Title"} />
+        <meta property="og:description" content={subTitle || "Default Description"} />
+        <meta property="og:image" content={`https://tugofwar-server.onrender.com/uploads/${imageUrl}`} />
         <meta property="og:url" content={`${window.location.origin}/detailed-content/${id}`} />
         <meta property="og:type" content="article" />
       </Helmet>
