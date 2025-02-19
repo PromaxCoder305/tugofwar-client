@@ -19,6 +19,22 @@ const ShareDropdown = ({ title, contentId, imageUrl }) => {
     alert("Link copied to clipboard!");
   };
 
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: title,
+          text: "Check this out!",
+          url: shareUrl, // The link to be shared
+        });
+        console.log("Shared successfully!");
+      } catch (error) {
+        console.error("Error sharing:", error);
+      }
+    } else {
+      alert("Web Share API not supported in this browser.");
+    }
+  }
   return (
     <>
       {/* Dynamic Meta Tags for Open Graph */}
