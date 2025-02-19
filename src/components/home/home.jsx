@@ -138,40 +138,52 @@ function Home() {
 
           {/* ✅ Third Column: YouTube Section */}
           <div className="col-lg-2 col-md-6 px-3">
-            <h4>Popular Videos</h4>
-            {youtubeLinks.length > 0 ? (
-              <>
-                <div className="position-relative">
-                  {getYoutubeEmbedUrl(youtubeLinks[0]?.youtubeLink) ? (
-                    <iframe
-                      width="100%"
-                      height="150"
-                      src={getYoutubeEmbedUrl(youtubeLinks[0].youtubeLink)}
-                      title={youtubeLinks[0].title}
-                      frameBorder="0"
-                      allowFullScreen
-                    ></iframe>
-                  ) : (
-                    <p>No valid video available</p>
-                  )}
-                </div>
+  <h4>Popular Videos</h4>
+  {youtubeLinks.length > 0 ? (
+    <>
+      {/* Display the first video as an embedded iframe */}
+      <div className="position-relative">
+        {getYoutubeEmbedUrl(youtubeLinks[0]?.youtubeLink) ? (
+          <iframe
+            width="100%"
+            height="150"
+            src={getYoutubeEmbedUrl(youtubeLinks[0].youtubeLink)}
+            title={youtubeLinks[0].title}
+            frameBorder="0"
+            allowFullScreen
+          ></iframe>
+        ) : (
+          <p>No valid video available</p>
+        )}
+      </div>
 
-                {youtubeLinks.slice(1).map((video, index) => (
-                  <div className="border-bottom pb-2 mb-2" key={video._id}>
-                    <a>{video.title || "No Title Available"}</a>
-                    <p className="text-muted">
-                      <small>
-                        <strong>{video.district ? video.district.toUpperCase() : "UNKNOWN DISTRICT"}</strong> |{" "}
-                        {formatDate(video.date)}
-                      </small>
-                    </p>
-                  </div>
-                ))}
-              </>
-            ) : (
-              <p>No YouTube videos available.</p>
-            )}
+      {/* Display remaining videos as links below */}
+      <div className="mt-3">
+        {youtubeLinks.slice(1).map((video, index) => (
+          <div className="border-bottom pb-2 mb-2" key={video._id}>
+            <a
+              href={video.youtubeLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary"
+            >
+              {video.title || "No Title Available"}
+            </a>
+            <p className="text-muted">
+              <small>
+                <strong>{video.district ? video.district.toUpperCase() : "UNKNOWN DISTRICT"}</strong> |{" "}
+                {formatDate(video.date)}
+              </small>
+            </p>
           </div>
+        ))}
+      </div>
+    </>
+  ) : (
+    <p>No YouTube videos available.</p>
+  )}
+</div>
+
         </div>
       </div>
     </>
